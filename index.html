@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI编导 - 智能视频内容生成平台</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🎬</span>
+                <span class="logo-text">AI编导</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#core" class="nav-link">核心功能</a></li>
+                <li><a href="#auxiliary" class="nav-link">辅助工具</a></li>
+                <li><a href="#advanced" class="nav-link">进阶功能</a></li>
+                <li><a href="#about" class="nav-link">关于</a></li>
+            </ul>
+        </nav>
+
+        <!-- 主hero区域 -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>AI编导</h1>
+                <p class="subtitle">一键生成短视频脚本、标题、文案 - 您的智能视频内容创意助手</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('core')">开始使用</button>
+                    <button class="btn btn-secondary" onclick="openDemo()">查看演示</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="placeholder-image">📹</div>
+            </div>
+        </section>
+
+        <!-- 核心功能区 -->
+        <section id="core" class="section core-features">
+            <div class="section-title">
+                <h2>核心功能</h2>
+                <p>根据关键词或热点，一键生成专业级内容</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- 脚本生成 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>AI脚本生成</h3>
+                    <p>输入关键词或热点话题，AI自动生成符合短视频规范的完整脚本</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>✓ 多种视频风格选择</li>
+                            <li>✓ 自动控制时长</li>
+                            <li>✓ 剧情优化建议</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-small" onclick="openTool('script')">立即生成</button>
+                </div>
+
+                <!-- 标题生成 -->
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>爆款标题生成</h3>
+                    <p>AI根据内容自动生成多个高点击率标题，提升视频曝光</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>✓ 5+标题选项</li>
+                            <li>✓ 针对各平台优化</li>
+                            <li>✓ 热点词汇融合</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-small" onclick="openTool('title')">生成标题</button>
+                </div>
+
+                <!-- 文案生成 -->
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>营销文案生成</h3>
+                    <p>根据视频内容生成精准的营销文案、视频描述、话题标签</p>
+                    <div class="feature-details">
+                        <ul>
+                            <li>✓ 多风格文案</li>
+                            <li>✓ 自动生成话题标签</li>
+                            <li>✓ CTA按钮优化</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-small" onclick="openTool('copywriting')">生成文案</button>
+                </div>
+            </div>
+
+            <!-- 核心功能演示 -->
+            <div class="demo-section">
+                <h3>快速演示</h3>
+                <div class="input-group">
+                    <input type="text" id="keywordInput" placeholder="输入关键词或热点话题，例如：人工智能改变生活" class="input-large">
+                    <button class="btn btn-primary" onclick="generateCore()">一键生成</button>
+                </div>
+                <div id="coreOutput" class="output-container" style="display:none;">
+                    <div class="output-item">
+                        <h4>📝 生成的脚本</h4>
+                        <div id="scriptOutput" class="output-text"></div>
+                    </div>
+                    <div class="output-item">
+                        <h4>✨ 推荐标题</h4>
+                        <div id="titleOutput" class="output-text"></div>
+                    </div>
+                    <div class="output-item">
+                        <h4>💬 营销文案</h4>
+                        <div id="copywritingOutput" class="output-text"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 辅助工具区 -->
+        <section id="auxiliary" class="section auxiliary-tools">
+            <div class="section-title">
+                <h2>辅助工具</h2>
+                <p>提升创意效率，完善视频制作细节</p>
+            </div>
+
+            <div class="tools-grid">
+                <!-- 提词器 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🎤</div>
+                    <h3>智能提词器</h3>
+                    <p>为您的脚本配置专业级提词器，支持滚动字幕、字体调整、快捷控制</p>
+                    <button class="btn btn-small" onclick="openTool('teleprompter')">打开提词器</button>
+                </div>
+
+                <!-- 分镜脚本 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🎞️</div>
+                    <h3>分镜头脚本</h3>
+                    <p>将文字脚本转化为详细的分镜头设计，包括镜头类型、转场、特效建议</p>
+                    <button class="btn btn-small" onclick="openTool('storyboard')">生成分镜</button>
+                </div>
+
+                <!-- 拍同款拆解 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🔍</div>
+                    <h3>爆款视频拆解</h3>
+                    <p>上传或输入视频链接，AI自动分析爆款视频的结构、文案、音乐、特效等要素</p>
+                    <button class="btn btn-small" onclick="openTool('analysis')">开始拆解</button>
+                </div>
+
+                <!-- 音乐库 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🎵</div>
+                    <h3>AI音乐推荐</h3>
+                    <p>根据视频风格和内容，推荐最匹配的背景音乐和音效</p>
+                    <button class="btn btn-small" onclick="openTool('music')">浏览音乐</button>
+                </div>
+
+                <!-- 配音管理 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🔊</div>
+                    <h3>配音管理</h3>
+                    <p>支持多种方式：文本转语音、上传配音、选择数字人配音</p>
+                    <button class="btn btn-small" onclick="openTool('voiceover')">配置配音</button>
+                </div>
+
+                <!-- 效果库 -->
+                <div class="tool-card">
+                    <div class="tool-icon">✨</div>
+                    <h3>特效素材库</h3>
+                    <p>海量转场、字幕、贴纸特效库，一键应用到视频中</p>
+                    <button class="btn btn-small" onclick="openTool('effects')">浏览特效</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 进阶功能区 -->
+        <section id="advanced" class="section advanced-features">
+            <div class="section-title">
+                <h2>进阶功能</h2>
+                <p>一键生成粗剪视频，支持数字人播报</p>
+            </div>
+
+            <div class="advanced-grid">
+                <!-- 数字人生成 -->
+                <div class="advanced-card">
+                    <div class="advanced-icon">🤖</div>
+                    <h3>数字人视频生成</h3>
+                    <p>连接数字人API，自动生成虚拟主播播报视频</p>
+                    <div class="feature-list">
+                        <h4>功能特性：</h4>
+                        <ul>
+                            <li>✓ 多款数字人形象选择</li>
+                            <li>✓ 自然流畅的肢体语言</li>
+                            <li>✓ 支持多语言配音</li>
+                            <li>✓ 实时生成预览</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-small" onclick="openTool('digital-avatar')">选择数字人</button>
+                </div>
+
+                <!-- 视频粗剪 -->
+                <div class="advanced-card">
+                    <div class="advanced-icon">🎬</div>
+                    <h3>智能粗剪视频</h3>
+                    <p>基于脚本和素材库，AI自动进行视频合成和粗剪</p>
+                    <div class="feature-list">
+                        <h4>功能特性：</h4>
+                        <ul>
+                            <li>✓ 自动选择和匹配素材</li>
+                            <li>✓ 智能转场效果</li>
+                            <li>✓ 自动配音和字幕</li>
+                            <li>✓ 导出多种格式</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-small" onclick="openTool('video-generation')">生成视频</button>
+                </div>
+
+                <!-- 文生视频 -->
+                <div class="advanced-card">
+                    <div class="advanced-icon">🎥</div>
+                    <h3>文生视频</h3>
+                    <p>使用先进的文生视频模型，直接从文字脚本生成高质量视频</p>
+                    <div class="feature-list">
+                        <h4>功能特性：</h4>
+                        <ul>
+                            <li>✓ 支持多种艺术风格</li>
+                            <li>✓ 高分辨率输出</li>
+                            <li>✓ 场景和人物自定义</li>
+                            <li>✓ 快速渲染</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-small" onclick="openTool('text-to-video')">开始生成</button>
+                </div>
+
+                <!-- 视频增强 -->
+                <div class="advanced-card">
+                    <div class="advanced-icon">🎨</div>
+                    <h3>视频增强与优化</h3>
+                    <p>AI自动优化视频质量、色彩、音频等，提升专业度</p>
+                    <div class="feature-list">
+                        <h4>功能特性：</h4>
+                        <ul>
+                            <li>✓ 自动色彩分级</li>
+                            <li>✓ 音频降噪和增强</li>
+                            <li>✓ 画面清晰度提升</li>
+                            <li>✓ 亮度和对比优化</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-small" onclick="openTool('video-enhancement')">上传视频</button>
+                </div>
+            </div>
+
+            <!-- 工作流演示 -->
+            <div class="workflow-section">
+                <h3>完整工作流示例</h3>
+                <div class="workflow-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>输入关键词</h4>
+                        <p>输入热点或创意</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>AI生成脚本</h4>
+                        <p>自动生成完整脚本</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>选择生成方式</h4>
+                        <p>数字人/文生视频</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>获取粗剪视频</h4>
+                        <p>一键导出完成视频</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于部分 -->
+        <section id="about" class="section about">
+            <div class="section-title">
+                <h2>关于 AI编导</h2>
+            </div>
+            <div class="about-content">
+                <p>AI编导是一个革命性的视频内容创意平台，致力于帮助内容创作者、营销人员和视频制作团队轻松生成高质量的短视频内容。</p>
+                <p>通过集成先进的AI技术（包括自然语言处理、计算机视觉和视频生成），我们让视频创作变得简单、快速、高效。</p>
+                <p>无论您是专业视频制作人还是初学者，AI编导都能帮助您在几分钟内从创意到成品。</p>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 AI编导. 版权所有。</p>
+                <div class="footer-links">
+                    <a href="#">隐私政策</a>
+                    <a href="#">使用条款</a>
+                    <a href="#">联系我们</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 工具弹窗 -->
+    <div id="toolModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
